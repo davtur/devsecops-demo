@@ -4,26 +4,49 @@ metadata:
   namespace: stackrox
   name: stackrox-secured-cluster-services
 spec:
-  clusterName: development
-  auditLogs:
-    collection: Auto
   admissionControl:
-    listenOnUpdates: true
     bypass: BreakGlassAnnotation
     contactImageScanners: DoNotScanInline
     listenOnCreates: true
-    timeoutSeconds: 20
     listenOnEvents: true
+    listenOnUpdates: true
+    resources:
+      requests:
+        cpu: 50m
+        memory: 100Mi
+    timeoutSeconds: 20
+  auditLogs:
+    collection: Auto
+  clusterName: development
+  perNode:
+    collector:
+      collection: EBPF
+      imageFlavor: Regular
+      resources:
+        requests:
+          cpu: 50m
+          memory: 100Mi
+    compliance:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 100Mi
+    taintToleration: TolerateTaints
   scanner:
     analyzer:
+      resources:
+        requests:
+          cpu: 50m
+          memory: 100Mi
       scaling:
         autoScaling: Enabled
         maxReplicas: 5
         minReplicas: 2
         replicas: 3
     scannerComponent: AutoSense
-  perNode:
-    collector:
-      collection: EBPF
-      imageFlavor: Regular
-    taintToleration: TolerateTaints
+  sensor:
+    resources:
+      requests:
+        cpu: 50m
+        memory: 100Mi
+

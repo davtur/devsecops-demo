@@ -7,6 +7,16 @@ spec:
   central:
     adminPasswordSecret:
       name: acs-password
+    db:
+      isEnabled: Default
+      persistence:
+        persistentVolumeClaim:
+          claimName: central-db
+          size: 10Gi
+      resources:
+        requests:
+          cpu: 100m
+          memory: 50Mi
     exposure:
       loadBalancer:
         enabled: false
@@ -18,14 +28,26 @@ spec:
     persistence:
       persistentVolumeClaim:
         claimName: stackrox-db
+        size: 10Gi
+    resources:
+      requests:
+        cpu: 50m
   egress:
     connectivityPolicy: Online
   scanner:
     analyzer:
+      resources:
+        limits: {}
+        requests:
+          cpu: 50m
       scaling:
         autoScaling: Enabled
-        maxReplicas: 5
-        minReplicas: 2
-        replicas: 3
+        maxReplicas: 3
+        minReplicas: 1
+        replicas: 1
+    db:
+      resources:
+        limits: {}
+        requests:
+          cpu: 50m
     scannerComponent: Enabled
-
