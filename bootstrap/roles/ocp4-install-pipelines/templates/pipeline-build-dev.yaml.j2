@@ -145,7 +145,7 @@ spec:
       kind: ClusterTask
     params:
     - name: image
-      value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/spring-petclinic
+      value: default-route-openshift-image-registry.apps-crc.testing/$(context.pipelineRun.namespace)/spring-petclinic
     - name: rox_api_token
       value: roxsecrets
     - name: rox_central_endpoint
@@ -162,7 +162,7 @@ spec:
       kind: ClusterTask
     params:
     - name: image
-      value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/spring-petclinic
+      value: default-route-openshift-image-registry.apps-crc.testing/$(context.pipelineRun.namespace)/spring-petclinic
     - name: rox_api_token
       value: roxsecrets
     - name: rox_central_endpoint
