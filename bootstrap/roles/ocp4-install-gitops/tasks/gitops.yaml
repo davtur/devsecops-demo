@@ -120,9 +120,9 @@
     namespace: openshift-gitops
   register: r_argopass
 
-#- name: debug
-#  debug:
-#    msg: "{{ r_argopass.resources[0].data['admin.password'] }}"
+- name: debug
+  debug:
+    msg: "{{ r_argopass.resources[0].data['admin.password'] }}"
 
 - name: Add CM for ArgoCD env
   kubernetes.core.k8s:
