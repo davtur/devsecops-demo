@@ -81,7 +81,7 @@ spec:
       - sonar:sonar
       - -f
       - spring-petclinic
-      - -Dsonar.host.url=https://sonarqube:9000
+      - -Dsonar.host.url=http://sonarqube:9000
       - -Dsonar.userHome=/tmp/sonar
       - -DskipTests=true
   - name: dependency-report
@@ -116,8 +116,8 @@ spec:
       - -f
       - spring-petclinic
       - -DskipTests=true
-      - -DaltDeploymentRepository=nexus::default::https://nexus:8081/repository/maven-releases/
-      - -DaltSnapshotDeploymentRepository=nexus::default::https://nexus:8081/repository/maven-snapshots/
+      - -DaltDeploymentRepository=nexus::default::http://nexus:8081/repository/maven-releases/
+      - -DaltSnapshotDeploymentRepository=nexus::default::http://nexus:8081/repository/maven-snapshots/
   - name: build-image
     taskRef:
       name: s2i-java-11
@@ -127,7 +127,7 @@ spec:
       - name: TLSVERIFY
         value: "false"
       - name: MAVEN_MIRROR_URL
-        value: https://nexus:8081/repository/maven-public/
+        value: http://nexus:8081/repository/maven-public/
       - name: PATH_CONTEXT
         value: spring-petclinic/target
       - name: IMAGE_NAME
