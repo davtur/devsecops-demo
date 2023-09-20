@@ -47,7 +47,7 @@
 
 - name: Wait for gogs and gogs-postgresql to be running
   uri:
-    url: http://{{ r_gogs_route.resources[0].spec.host }}
+    url: https://{{ r_gogs_route.resources[0].spec.host }}
     status_code: 200
   register: result
   until: result.status == 200
@@ -73,7 +73,7 @@
 
 - name: Wait for nexus to be running
   uri:
-    url: http://{{ r_nexus_route.resources[0].spec.host }}
+    url: https://{{ r_nexus_route.resources[0].spec.host }}
     status_code: 200
   register: result
   until: result.status == 200
@@ -126,7 +126,7 @@
 
 - name: Wait for reports to be running
   uri:
-    url: http://{{ r_reports_route.resources[0].spec.host }}
+    url: https://{{ r_reports_route.resources[0].spec.host }}
     status_code: 200
   register: result
   until: result.status == 200

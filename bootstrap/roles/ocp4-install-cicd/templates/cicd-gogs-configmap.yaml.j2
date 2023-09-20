@@ -21,7 +21,7 @@ data:
     ROOT = /opt/gogs/data/repositories
 
     [server]
-    ROOT_URL=http://{{ r_gogs_route.resources[0].spec.host }}
+    ROOT_URL=https://{{ r_gogs_route.resources[0].spec.host }}
     SSH_DOMAIN={{ r_gogs_route.resources[0].spec.host }}
 
     [security]

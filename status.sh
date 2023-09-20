@@ -1,6 +1,6 @@
 printf "\n## GOGS Server - Username/Password: gogs/gogs ##\n"
 GOGS=$(oc get route -n cicd gogs -o jsonpath='{.spec.host}')
-printf "http://$GOGS"
+printf "https://$GOGS"
 printf "\n"
 
 printf "\n## Nexus Server - Username/Password: admin/admin123 ##\n"
@@ -15,7 +15,7 @@ printf "\n"
 
 printf "\n## Reports Server - Username/Password: reports/reports ##\n"
 REPORTS=$(oc get route -n cicd reports-repo -o jsonpath='{.spec.host}')
-printf "http://$REPORTS"
+printf "https://$REPORTS"
 printf "\n"
 
 printf "\n## ACS/Stackrox Server - Username/Password: admin/stackrox ##\n"
