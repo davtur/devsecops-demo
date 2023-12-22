@@ -261,7 +261,7 @@ spec:
       - perf-tests-clone
     params:
       - name: APP_URL
-        value: "https://spring-petclinic.$(params.STAGE_NAMESPACE).svc.cluster.local:8080"
+        value: "http://spring-petclinic.$(params.STAGE_NAMESPACE).svc.cluster.local:8080"
     workspaces:
     - name: workspace
       workspace: workspace
@@ -272,7 +272,7 @@ spec:
       - perf-tests-clone
     params:
       - name: APP_URL
-        value: "https://spring-petclinic.$(params.STAGE_NAMESPACE).svc.cluster.local:8080"
+        value: "http://spring-petclinic.$(params.STAGE_NAMESPACE).svc.cluster.local:8080"
     workspaces:
     - name: simulations
       workspace: workspace
